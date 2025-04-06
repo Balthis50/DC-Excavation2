@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
 
-        // Auto-advance every 3 seconds (optional)
-        setInterval(nextSlide, 3000);
+        // Auto-advance every 10 seconds (optional)
+        setInterval(nextSlide, 10000);
     }
 
     // Form submission
