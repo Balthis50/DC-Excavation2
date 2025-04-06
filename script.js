@@ -37,14 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.querySelector('.carousel-control.next');
     let currentIndex = 0;
     const totalItems = items.length;
-  
-    document.addEventListener('DOMContentLoaded', function() {
-        const carousel = document.querySelector('.carousel-inner');
-        const items = document.querySelectorAll('.carousel-item');
-        const prevBtn = document.querySelector('.carousel-control.prev');
-        const nextBtn = document.querySelector('.carousel-control.next');
-        let currentIndex = 0;
-        const totalItems = items.length;
       
         // Update carousel position
         function updateCarousel() {
