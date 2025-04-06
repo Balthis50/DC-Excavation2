@@ -31,53 +31,61 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.querySelector('.carousel-inner');
-  const items = document.querySelectorAll('.carousel-item');
-  const prevBtn = document.querySelector('.carousel-control.prev');
-  const nextBtn = document.querySelector('.carousel-control.next');
-  let currentIndex = 0;
-  const totalItems = items.length;
-
-  // Update carousel position
-  function updateCarousel() {
-    // Reset all items to non-active
-    items.forEach(item => {
-      item.classList.remove('active');
-    });
-    
-    // Set current item to active
-    items[currentIndex].classList.add('active');
-    
-    // Move the carousel
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-
-  // Next slide
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalItems;
-    updateCarousel();
-  }
-
-  // Previous slide
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-    updateCarousel();
-  }
-
-  // Button events
-  prevBtn.addEventListener('click', prevSlide);
-  nextBtn.addEventListener('click', nextSlide);
-
-  // Auto-advance every 5 seconds (optional)
-  const autoAdvance = setInterval(nextSlide, 5000);
+    const carousel = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-control.prev');
+    const nextBtn = document.querySelector('.carousel-control.next');
+    let currentIndex = 0;
+    const totalItems = items.length;
   
-  // Stop auto-advance when user interacts with controls
-  prevBtn.addEventListener('click', () => clearInterval(autoAdvance));
-  nextBtn.addEventListener('click', () => clearInterval(autoAdvance));
-  
-  // Initialize carousel
-  updateCarousel();
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.carousel-control.prev');
+        const nextBtn = document.querySelector('.carousel-control.next');
+        let currentIndex = 0;
+        const totalItems = items.length;
+      
+        // Update carousel position
+        function updateCarousel() {
+          // Reset all items to non-active
+          items.forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          // Set current item to active
+          items[currentIndex].classList.add('active');
+          
+          // Move the carousel
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+      
+        // Next slide
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % totalItems;
+          updateCarousel();
+        }
+      
+        // Previous slide
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+          updateCarousel();
+        }
+      
+        // Button events
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+      
+        // Auto-advance every 5 seconds (optional)
+        const autoAdvance = setInterval(nextSlide, 5000);
+        
+        // Stop auto-advance when user interacts with controls
+        prevBtn.addEventListener('click', () => clearInterval(autoAdvance));
+        nextBtn.addEventListener('click', () => clearInterval(autoAdvance));
+        
+        // Initialize carousel
+        updateCarousel();
+      });
   });
   document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault(); 
